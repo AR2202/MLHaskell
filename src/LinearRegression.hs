@@ -16,7 +16,7 @@ module LinearRegression
    updated,
    readInput,
    inputfile,
-   main
+   linregress
   
 )
   where
@@ -136,8 +136,8 @@ readInput filename = do
 readTuples :: String -> (Float,Float)
 readTuples = read 
 
-
-main = do
+linregress :: IO ()
+linregress = do
   datapoints <- readInput inputfile
   let alpha = 0.01 -- the learning rate
   let m = 1 --initial guess for m
