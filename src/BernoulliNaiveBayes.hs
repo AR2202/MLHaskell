@@ -142,10 +142,10 @@ p_cold_person person traindata = p_cond person traindata * p_cold traindata/(p_p
 
 
 
---probability of a person having not a cold given a certain combination of symptoms
+--probability of a person not having a cold given a certain combination of symptoms
 -------------------------------------------------------------------------------
 p_noCold_person :: Person -> [Person] -> Float
-p_noCold_person person traindata = p_cond_noCold person traindata * p_noCold traindata/(p_priors person traindata)
+p_noCold_person person traindata = p_cond_noCold person traindata * p_noCold traindata/p_priors person traindata
 
 
 --The denominator is often ommited as it is the same in both calculations, and we only care about which prediction has the higher probability.
@@ -162,7 +162,7 @@ p_noCold_person' person traindata = p_cond_noCold person traindata * p_noCold tr
 ------------------------------------------------------------------------------------------------------------
 
 classifyNB :: Person -> [Person] -> IO()
-classifyNB person traindata = putStrLn $ "Prediction: " ++ outcome ++ " P(no cold): "++(show p_no)++", P(cold): "++ (show p_yes)
+classifyNB person traindata = putStrLn $ "Prediction: " ++ outcome ++ " P(no cold): "++ (show p_no)++", P(cold): "++ (show p_yes)
   where outcome
           |p_no>=p_yes = "no cold"
           |otherwise = "cold"
