@@ -2,3 +2,4 @@ Machine Learning algorithms implemented in Haskell from Scratch (without librari
 
 1. Linear Regression
 2. Bernoulli Naive Bayes
+3. Gaussian Naive Bayes
