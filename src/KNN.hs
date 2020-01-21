@@ -85,8 +85,8 @@ knnClassify = do
   datapoints <- readInput inputfile
   let n = 3
   
-  let output  = mostFrequentLabel $ knn 3 testpoint datapoints
-  let output2 = mostFrequentLabel $ knn 3 testpoint2 datapoints
+  let output  = mostFrequentLabel $ knn n testpoint datapoints
+  let output2 = mostFrequentLabel $ knn n testpoint2 datapoints
 
   putStrLn "The first point is classified as:"
   print output
